@@ -51,6 +51,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bookmarks.urls'
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 
 TEMPLATES = [
     {
