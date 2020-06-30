@@ -90,15 +90,18 @@ AUTHENTICATION_BACKENDS = [
     'account.authentication.EmailAuthBackend',
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
 ]
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '' # Google consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '' # Google consumer Secret
 
 SOCIAL_AUTH_TWITTER_KEY = '' # Twitter API Key
 SOCIAL_AUTH_TWITTER_SECRET = '' # Twitter API Secret
-
+#AAAAAAAAAAAAAAAAAAAAAH86FgEAAAAA9Z547Iitrdu5DHrqxAwVDa%2Fht9M%3DFOm9rCDeN8w26TA7IdsCl5CDzutjdEqfe4XGtDsePZxlGp9Zd1
 
 SOCIAL_AUTH_FACEBOOK_KEY = '' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '' # Facebook App Secret
