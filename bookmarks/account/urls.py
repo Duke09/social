@@ -5,13 +5,11 @@ from .views import *
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
-    path('register/', register, name='register'),
-    # path('login/', user_login, name='login'),
     path(
-        '', 
-        dashboard, 
-        name='dashboard'
-    ),
+        '', dashboard, name='dashboard'),
+    path('register/', register, name='register'),
+    path('edit/', eidt, name='edit'),
+    # path('login/', user_login, name='login'),
     # # Authentication
     # path(
     #     'login/', 
