@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'django_extensions', # Not recommended to use in production
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -101,7 +102,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '' # Google consumer Secret
 
 SOCIAL_AUTH_TWITTER_KEY = '' # Twitter API Key
 SOCIAL_AUTH_TWITTER_SECRET = '' # Twitter API Secret
-#AAAAAAAAAAAAAAAAAAAAAH86FgEAAAAA9Z547Iitrdu5DHrqxAwVDa%2Fht9M%3DFOm9rCDeN8w26TA7IdsCl5CDzutjdEqfe4XGtDsePZxlGp9Zd1
+
 
 SOCIAL_AUTH_FACEBOOK_KEY = '' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '' # Facebook App Secret
