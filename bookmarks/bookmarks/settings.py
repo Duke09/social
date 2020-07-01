@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'django_extensions', # Not recommended to use in production
     'images.apps.ImagesConfig',
+    'actions.apps.ActionsConfig',
 ]
 
 MIDDLEWARE = [

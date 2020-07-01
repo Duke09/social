@@ -7,6 +7,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 from common.decorators import ajax_required
+from actions.utils import create_action
+from actions.models import Action
+
 from .forms import LoginForm, UserRegistrationForm, \
                    UserEditForm, ProfileEditForm
 from .models import Profile, Contact
@@ -26,6 +29,7 @@ def user_follow(request):
                     user_from=request.user,
                     user_to=user
                 )
+                create_action(request.user, 'is following', user)
             else:
                 Contact.objects.filter(
                     user_from=request.user,
@@ -71,7 +75,7 @@ def user_detail(request, username):
     )
 
 @login_required
-def eidt(request):
+def edit(request):
     if request.method == 'POST':
         user_form = UserEditForm(
             instance=request.user,
@@ -138,7 +142,29 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'account/dashboard.html', {'section':'dashboard'})
+    # Display all actions by default
+    actions = Action.objects.exclude(user=request.user)
+    following_ids = request.user.following.values_list(
+        'id',
+        flat=True
+    )
+    if following_ids:
+        # If user is following others, retrieve only their actions
+        actions = actions.filter(user_id__in=following_ids)
+    # actions = actions[:10]
+    # actions = actions.select_related('user', 'user__profile')[:10]
+    actions = actions.select_related(
+        'user', 'user__profile'
+        ).prefetch_related('target')[:10]
+
+    return render(
+        request, 
+        'account/dashboard.html', 
+        {
+            'section':'dashboard',
+            'actions': actions
+        }
+    )
 
 def register(request):
     if request.method == 'POST':
@@ -154,6 +180,7 @@ def register(request):
             new_user.save()
             # Create the user profile
             Profile.objects.create(user=new_user)
+            create_action(new_user, 'has created an account')
 
             return render(
                 request,
