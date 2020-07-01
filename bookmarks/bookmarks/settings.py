@@ -103,7 +103,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '' # Google consumer Secret
 SOCIAL_AUTH_TWITTER_KEY = '' # Twitter API Key
 SOCIAL_AUTH_TWITTER_SECRET = '' # Twitter API Secret
 
-
 SOCIAL_AUTH_FACEBOOK_KEY = '' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '' # Facebook App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email',]

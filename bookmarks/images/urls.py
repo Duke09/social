@@ -6,4 +6,9 @@ app_name = 'images'
 
 urlpatterns = [
     path('create/', image_create, name='create'),
+    path(
+        'detail/<int:id>/<slug:slug>/', 
+        image_detail, 
+        name='detail'
+    ),
 ]
