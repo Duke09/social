@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'easy_thumbnails',
     'django_extensions', # Not recommended to use in production
     'images.apps.ImagesConfig',
 ]
