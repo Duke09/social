@@ -29,7 +29,7 @@
     <div class="image-likes">
         {% for user in users_like %}
             <div>
-                <img src="" alt=""> <!-- user.profile.photo.url -->
+                <img src="{{ user.profile.photo.url }}" alt=""> <!--  -->
                 <p>{{ user.first_name }}</p>
             </div>
         {% empty %}
